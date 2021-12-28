@@ -26,9 +26,9 @@ const styles = StyleSheet.create({
     padding: 24,
   },
   titulo: {
-    fontWeight: 'bold',
     fontSize: 28,
     color: '#000',
+    fontFamily: 'OpenSans-Bold',
   },
   containerSacola: {
     backgroundColor: '#FFF',
@@ -55,5 +55,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 32,
     fontSize: 16,
     color: '#A1A5AA',
+    fontFamily: 'OpenSans-Regular',
   }
 })
