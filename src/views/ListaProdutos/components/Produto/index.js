@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, StyleSheet, Text, Image } from 'react-native'
+import { gray, fontSizeSmall } from '../../../../styles/styles'
 
 export default function Produto({titulo, imagem, }){
   return (
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
   texto: {
     marginTop: 8,
     fontFamily: 'OpenSans-SemiBold',
-    fontSize: 14,
-    color: '#848486',
+    fontSize: fontSizeSmall,
+    color: gray,
   }
 })

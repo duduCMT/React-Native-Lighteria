@@ -1,5 +1,12 @@
 import React from 'react'
 import { View, Text, Image, StyleSheet } from 'react-native'
+import { 
+  backgroundColor, 
+  fontFamilyRegular, 
+  fontSizeMedium, 
+  fontSizeXXLarge, 
+  lighterGray, 
+} from '../../../../styles/styles'
 
 export default function Cabecalho() {
   return (
@@ -29,7 +36,7 @@ const styles = StyleSheet.create({
     paddingVertical: 32,
   },
   titulo: {
-    fontSize: 28,
+    fontSize: fontSizeXXLarge,
     color: '#000',
     fontFamily: 'OpenSans-ExtraBold',
     //textTransform: 'uppercase',
@@ -50,15 +57,15 @@ const styles = StyleSheet.create({
   },
   separador: {
     height: 1,
-    backgroundColor: '#A1A5AA',
+    backgroundColor: lighterGray,
     width: '100%',
   },
   textoDescricao: {
     position: 'absolute',
-    backgroundColor: '#F4F0F4',
+    backgroundColor: backgroundColor,
     paddingHorizontal: 32,
-    fontSize: 16,
-    color: '#A1A5AA',
-    fontFamily: 'OpenSans-Regular',
+    fontSize: fontSizeMedium,
+    color: lighterGray,
+    fontFamily: fontFamilyRegular,
   }
 })
