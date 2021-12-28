@@ -3,7 +3,7 @@ import { View, Text, Image, StyleSheet } from 'react-native'
 
 export default function Cabecalho() {
   return (
-    <>
+    <View style={styles.container}>
       <View style={styles.containerTitulo}>
         <Text style={styles.titulo}>Lighteria</Text>
         <View style={styles.containerSacola}>
@@ -14,35 +14,39 @@ export default function Cabecalho() {
           <View style={styles.separador} />
           <Text style={styles.textoDescricao}>Categorias</Text>
       </View>
-    </>
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
+  container: {
+    paddingHorizontal: 10,
+  },
   containerTitulo: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: 24,
+    paddingVertical: 32,
   },
   titulo: {
     fontSize: 28,
     color: '#000',
-    fontFamily: 'OpenSans-Bold',
+    fontFamily: 'OpenSans-ExtraBold',
+    //textTransform: 'uppercase',
   },
   containerSacola: {
     backgroundColor: '#FFF',
-    padding: 18,
-    borderRadius: 30
+    borderRadius: 30,
+    padding: 16,
   },
   image: {
     height: 24,
     width: 24,
   },
   containerDescricao: {
-    paddingHorizontal: 24,
     justifyContent: 'center',
     alignItems: 'center',
+    marginBottom: 32,
   },
   separador: {
     height: 1,
