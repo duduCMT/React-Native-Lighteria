@@ -1,13 +1,19 @@
 import React from 'react'
-import { View, StyleSheet, Text, Image } from 'react-native'
+import { View, StyleSheet, Text, Image, TouchableOpacity } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 import { gray, fontSizeSmall } from '../../../../styles/styles'
 
-export default function Produto({titulo, imagem, }){
+export default function Produto({produto}){
+  const navigation = useNavigation()
+
   return (
-    <View style={styles.containerItem}>
-      <Image source={imagem} style={styles.imagem} resizeMode='contain'/>
-      <Text style={styles.texto}>{titulo}</Text>
-    </View>
+    <TouchableOpacity 
+      style={styles.containerItem}
+      onPress={() => navigation.push('DetalhesProduto', {produto})}
+    >
+      <Image source={produto.imagem} style={styles.imagem} resizeMode='contain'/>
+      <Text style={styles.texto}>{produto.titulo}</Text>
+    </TouchableOpacity>
   )
 }
 

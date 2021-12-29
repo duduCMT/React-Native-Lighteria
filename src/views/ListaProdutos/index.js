@@ -8,13 +8,11 @@ export default function ListaProdutos(){
   return (
     <View style={styles.container}>
       <FlatList 
+        ListHeaderComponent={ <Cabecalho /> }
+        renderItem={({item}) => <Produto produto={item} />}
         numColumns={2}
         data={data}
-        renderItem={({item}) => <Produto {...item} />}
         keyExtractor={item => item.id}
-        ListHeaderComponent={
-          <Cabecalho />
-        }
       />
     </View>
   )

@@ -1,5 +1,6 @@
 import React from 'react'
-import { View, Text, Image, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
+import Sacola from '../../../../components/Sacola'
 import { 
   backgroundColor, 
   fontFamilyRegular, 
@@ -13,9 +14,7 @@ export default function Cabecalho() {
     <View style={styles.container}>
       <View style={styles.containerTitulo}>
         <Text style={styles.titulo}>Lighteria</Text>
-        <View style={styles.containerSacola}>
-          <Image source={require('../../../../assets/images/icone-sacola.png')} style={styles.image} />
-        </View>
+        <Sacola />
       </View>
       <View style={styles.containerDescricao}>
           <View style={styles.separador} />
@@ -40,15 +39,6 @@ const styles = StyleSheet.create({
     color: '#000',
     fontFamily: 'OpenSans-ExtraBold',
     //textTransform: 'uppercase',
-  },
-  containerSacola: {
-    backgroundColor: '#FFF',
-    borderRadius: 30,
-    padding: 16,
-  },
-  image: {
-    height: 24,
-    width: 24,
   },
   containerDescricao: {
     justifyContent: 'center',
