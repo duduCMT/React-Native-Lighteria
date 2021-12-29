@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, StyleSheet, ImageBackground, Dimensions, Image } from 'react-native'
+import { View, StyleSheet, ImageBackground, Dimensions, Image, TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import Sacola from '../../../../components/Sacola'
 
@@ -8,17 +8,19 @@ export default function Background(){
   const navigation = useNavigation()
 
   return (
-    <View style={styles.bgContainer}>
+    <View style={styles.bgContainer} >
       <ImageBackground 
         resizeMode='cover'
         source={imgSrc}
         style={styles.imagemFundo}
       >
         <View style={styles.headerContainer}>
-          <Image 
-            source={require('../../../../assets/images/flecha-esquerda.png')}
-            style={styles.imagemSeta}
-          />
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Image 
+              source={require('../../../../assets/images/flecha-esquerda.png')}
+              style={styles.imagemSeta}
+            />
+          </TouchableOpacity>
           <Sacola />
         </View>
       </ImageBackground>

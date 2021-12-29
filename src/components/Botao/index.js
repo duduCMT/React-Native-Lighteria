@@ -5,7 +5,7 @@ import { fontFamilySemiBold, fontSizeMedium, lightBlue } from '../../styles/styl
 export default function Botao({ titulo, onPress }) {
   return (
     <TouchableOpacity onPress={onPress}>
-      <View style={styles.botaoContainer}>
+      <View style={styles.container}>
         <Text style={styles.texto}>{titulo}</Text>
       </View>
     </TouchableOpacity>
@@ -13,9 +13,10 @@ export default function Botao({ titulo, onPress }) {
 };
 
 const styles = StyleSheet.create({
-  botaoContainer: {
+  container: {
     backgroundColor: lightBlue,
-    padding: 20,
+    paddingHorizontal: 20,
+    paddingVertical: 16,
     borderRadius: 6,
   },
   texto: {

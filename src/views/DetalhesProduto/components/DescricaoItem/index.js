@@ -1,11 +1,14 @@
+import { useNavigation } from '@react-navigation/native'
 import React from 'react'
 import { View, StyleSheet, Text, Image } from 'react-native'
 import Botao from '../../../../components/Botao'
 import { fontFamilyBold, fontFamilyRegular, fontSizeLarge, fontSizeMedium, fontSizeSmall, fontSizeXXLarge, lighterGray, lightGray } from '../../../../styles/styles'
+import { toReal } from '../../../../utils/moeda'
 
 export default function DescricaoItem({produto}){
-  const {estudio, itemName, titulo, imagem, itemDesc, preco} = {...produto}
-  
+  const {estudio, itemName, titulo, imagem, itemDesc, preco, id} = {...produto}
+  const navigation = useNavigation()
+
   return (
     <View style={styles.itemContainer}>
       <View style={styles.itemPosicao}>
@@ -20,8 +23,8 @@ export default function DescricaoItem({produto}){
           </View>
           <Text style={styles.textoDescricao}>{itemDesc}</Text>
           <View style={styles.rodape}>
-            <Text style={styles.moeda}>R$ {preco.toFixed(2)}</Text>
-            <Botao titulo='Comprar' />
+            <Text style={styles.moeda}>{toReal(preco)}</Text>
+            <Botao titulo='Comprar' onPress={() => navigation.push('Checkout')}/>
           </View>
         </View>
       </View>
