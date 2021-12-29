@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { blue, fontFamilyRegular, fontFamilySemiBold, fontSizeMedium } from '../../styles/styles';
+import { blue, fontFamilyRegular, fontFamilySemiBold, fontSizeMedium, fontSizeSmall } from '../../styles/styles';
 
 export default function Botao({ titulo, onPress, style, type }) {
   return (
@@ -14,13 +14,13 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: blue,
     paddingHorizontal: 20,
-    paddingVertical: 16,
+    paddingVertical: 12,
     borderRadius: 6,
     alignItems: 'center',
   },
   texto: {
     fontFamily: fontFamilyRegular,
-    fontSize: fontSizeMedium,
+    fontSize: fontSizeSmall,
     color: '#FFF',
     textTransform: 'uppercase',
   },

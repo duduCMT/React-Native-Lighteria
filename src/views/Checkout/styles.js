@@ -2,7 +2,6 @@ import { StyleSheet } from "react-native";
 import { 
   blue, 
   fontFamilyBold, 
-  fontFamilyExtraBold, 
   fontFamilyRegular, 
   fontFamilySemiBold, 
   fontSizeLarge, 
@@ -12,10 +11,18 @@ import {
   gray
 } from '../../styles/styles'
 
+const paddingScreen = 24;
+
 export default styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 24,
+    // padding: 24,
+  },
+  header: {
+    paddingTop: paddingScreen,
+    paddingHorizontal: paddingScreen,
+    backgroundColor: '#FFF',
+    elevation: 4,
   },
   titulo: {
     fontFamily: fontFamilyBold,
@@ -27,15 +34,31 @@ export default styles = StyleSheet.create({
     fontSize: fontSizeMedium,
     marginBottom: 8,
   },
+  listaItens: {
+    paddingHorizontal: paddingScreen,
+    paddingVertical: 16,
+  },
+  footer: {
+    backgroundColor: '#FFF',
+    padding: paddingScreen,
+    borderTopLeftRadius: 24,
+    borderTopRightRadius: 24,
+    elevation: 12,
+  },
   containerTotal: {
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    marginBottom: 8,
   },
   total: {
+    fontFamily: fontFamilyBold,
+    fontSize: fontSizeLarge,
+    color: '#000',
+  },
+  valorTotal: {
     fontFamily: fontFamilySemiBold,
     fontSize: fontSizeLarge,
     color: '#000',
-    marginVertical: 36,
   },
   textoContinuar: {
     fontFamily: fontFamilyBold,

@@ -36,6 +36,7 @@ export default function App(){
               component={Checkout}
               options={{
                 headerShown: false,
+                animation: 'slide_from_bottom'
               }}
             />
           </Stack.Navigator> 

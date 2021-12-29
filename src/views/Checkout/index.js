@@ -1,14 +1,14 @@
 import React, { useContext } from 'react'
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity, FlatList } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
 import Botao from '../../components/Botao'
+import SacolaVazia from './components/SacolaVazia'
 import styles from './styles'
 
 import { DataContext } from '../../provider'
 import { toReal } from '../../utils/moeda'
 import { CheckoutItem } from './components/CheckoutItem'
-import SacolaVazia from './components/SacolaVazia'
 
 export default function Checkout() {
   const navigation = useNavigation()
@@ -19,23 +19,35 @@ export default function Checkout() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.titulo}>Minha Sacola</Text>
-      <Text style={styles.subtitulo}>Checkout</Text>
+      <View style={styles.header}>
+        <Text style={styles.titulo}>Minha Sacola</Text>
+        <Text style={styles.subtitulo}>Checkout</Text>
+      </View>
 
       { itensCheckout.length !== 0 ? 
-      <View>
-        {itensCheckout.map((item) => (
-          <CheckoutItem item={item} key={item.id} />
-        ))}
-        <View style={styles.containerTotal}>
-          <Text style={styles.total}>Total:</Text>
-          <Text style={styles.total}>{toReal(valorTotal)}</Text>
-        </View>
-        <Botao titulo='Finalizar Compra' />
-        <TouchableOpacity onPress={() => navigation.push('ListaProdutos')}>
-          <Text style={styles.textoContinuar}>Continuar Comprando</Text>
-        </TouchableOpacity>
-      </View> 
+      <>
+        <FlatList 
+          data={itensCheckout}
+          keyExtractor={(item) => item.id}
+          renderItem={({item}) => (
+            <CheckoutItem item={item}/>
+          )}
+          contentContainerStyle={styles.listaItens}
+        />
+        <View style={styles.footer}>
+          <View style={styles.containerTotal}>
+            <Text style={styles.total}>Total:</Text>
+            <Text style={styles.valorTotal}>{toReal(valorTotal)}</Text>
+          </View>
+
+          <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around'}}>
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+              <Text style={styles.textoContinuar}>Voltar</Text>
+            </TouchableOpacity>
+            <Botao titulo='Finalizar Compra' />
+          </View>
+        </View> 
+      </>
       : 
         <SacolaVazia />
       }
