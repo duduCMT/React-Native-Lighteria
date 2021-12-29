@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 import Botao from '../../components/Botao'
 import styles from './styles'
@@ -9,7 +8,7 @@ import styles from './styles'
 import { DataContext } from '../../provider'
 import { toReal } from '../../utils/moeda'
 import { CheckoutItem } from './components/CheckoutItem'
-import { gray, lighterGray, red } from '../../styles/styles'
+import SacolaVazia from './components/SacolaVazia'
 
 export default function Checkout() {
   const navigation = useNavigation()
@@ -38,13 +37,7 @@ export default function Checkout() {
         </TouchableOpacity>
       </View> 
       : 
-      <View style={styles.containerSacolaVazia}>
-        <View style={styles.sacolaVaziaIconContainer}>
-          <Icon name="shopping-outline" size={96} color={gray}/>
-          <Icon name="close-thick" size={48} color={red} style={styles.subiconSacolaVazia}/>
-        </View>
-        <Text style={styles.textoSacolaVazia}>Você não comprou nada ainda :(</Text>
-      </View>
+        <SacolaVazia />
       }
     </View>
   )
