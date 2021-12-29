@@ -2,9 +2,12 @@ import { StyleSheet } from 'react-native'
 import { 
   backgroundColor, 
   fontFamilyBold, 
+  fontFamilyLight, 
   fontFamilyRegular, 
+  fontFamilySemiBold, 
   fontSizeMedium, 
   fontSizeXXLarge, 
+  gray, 
   lighterGray, 
 } from '../../../../styles/styles'
 
@@ -22,6 +25,12 @@ export default styles = StyleSheet.create({
     fontSize: fontSizeXXLarge,
     color: '#000',
     fontFamily: fontFamilyBold,
+    //textTransform: 'uppercase',
+  },
+  subtitulo: {
+    fontSize: fontSizeMedium,
+    color: 'black',
+    fontFamily: fontFamilyLight,
     //textTransform: 'uppercase',
   },
   containerDescricao: {

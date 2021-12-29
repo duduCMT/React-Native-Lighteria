@@ -7,7 +7,10 @@ export default function Cabecalho() {
   return (
     <View style={styles.container}>
       <View style={styles.containerTitulo}>
-        <Text style={styles.titulo}>Lighteria</Text>
+        <View>
+          <Text style={styles.titulo}>Lighteria</Text>
+          <Text style={styles.subtitulo}>O melhor para iluminar sua vida!</Text>
+        </View>
         <Sacola />
       </View>
       <View style={styles.containerDescricao}>
