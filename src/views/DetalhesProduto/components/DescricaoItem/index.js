@@ -1,13 +1,15 @@
 import { useNavigation } from '@react-navigation/native'
-import React from 'react'
+import React, { useContext } from 'react'
 import { View, StyleSheet, Text, Image } from 'react-native'
 import Botao from '../../../../components/Botao'
+import { DataContext } from '../../../../provider'
 import { fontFamilyBold, fontFamilyRegular, fontSizeLarge, fontSizeMedium, fontSizeSmall, fontSizeXXLarge, lighterGray, lightGray } from '../../../../styles/styles'
 import { toReal } from '../../../../utils/moeda'
 
 export default function DescricaoItem({produto}){
   const {estudio, itemName, titulo, imagem, itemDesc, preco, id} = {...produto}
   const navigation = useNavigation()
+  const { adicionarItem } = useContext(DataContext)
 
   return (
     <View style={styles.itemContainer}>
@@ -24,7 +26,7 @@ export default function DescricaoItem({produto}){
           <Text style={styles.textoDescricao}>{itemDesc}</Text>
           <View style={styles.rodape}>
             <Text style={styles.moeda}>{toReal(preco)}</Text>
-            <Botao titulo='Comprar' onPress={() => navigation.push('Checkout')}/>
+            <Botao titulo='Comprar' onPress={ () => adicionarItem(produto) }/>
           </View>
         </View>
       </View>
