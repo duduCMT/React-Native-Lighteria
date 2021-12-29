@@ -15,6 +15,7 @@ export default function ListaProdutos(){
         data={data}
         showsVerticalScrollIndicator={false}
         keyExtractor={item => item.id}
+        contentContainerStyle={{paddingBottom: 16}}
       />
     </View>
   )
