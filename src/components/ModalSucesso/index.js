@@ -5,7 +5,7 @@ import { green } from "../../styles/styles";
 import styles from "./styles";
 import Botao from "../Botao";
 
-export default function ModalSucesso({ titulo, mensagem, botaoSecundario, botaoPrincipal, onBotaoPrincipal, visible, onClose }) {
+export default function ModalSucesso({ titulo, mensagem, botaoSecundario, botaoPrincipal, onBotaoPrincipal, visible, onClose, hiddenButtons }) {
   return (
     <Modal
       animationType="fade"
@@ -16,15 +16,20 @@ export default function ModalSucesso({ titulo, mensagem, botaoSecundario, botaoP
     >
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
+          <TouchableOpacity onPress={onClose} style={styles.closeButton}>
+            <Icon name="close" size={24} color='#000' />
+          </TouchableOpacity>
           <Icon name="checkbox-marked-circle-outline" size={96} color={green} />
           <Text style={styles.titulo}>{titulo}</Text>
-          <Text style={styles.mensagem}>{mensagem}</Text>
+          { mensagem ?<Text style={styles.mensagem}>{mensagem}</Text> : null }
+          { !hiddenButtons ? 
           <View style={styles.footer}>
             <TouchableOpacity style={styles.botaoSecundario} onPress={onClose}>
               <Text style={styles.textoBotaoSecundario}>{botaoSecundario}</Text>
             </TouchableOpacity>
             <Botao titulo={botaoPrincipal} style={styles.botaoAcao} onPress={onBotaoPrincipal}/>
           </View>
+          : null }
         </View>
       </View>
     </Modal>

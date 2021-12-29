@@ -13,7 +13,8 @@ export default styles = StyleSheet.create({
     margin: 20,
     backgroundColor: "white",
     borderRadius: 16,
-    padding: 32,
+    paddingVertical: 40,
+    paddingHorizontal: 32,
     alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
@@ -24,6 +25,11 @@ export default styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
     width: '90%',
+  },
+  closeButton: {
+    position: 'absolute',
+    right: 0,
+    padding: 16,
   },
   titulo: {
     color: green,

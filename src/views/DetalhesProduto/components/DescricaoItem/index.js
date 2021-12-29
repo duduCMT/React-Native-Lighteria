@@ -38,15 +38,9 @@ export default function DescricaoItem({ produto, style }) {
       </View>
       <ModalSucesso 
         titulo='Produto na Sacola'
-        mensagem='Seu produto foi adicionado na sacola. Deseja ver todos os itens?'
-        botaoPrincipal='Ver sacola'
-        botaoSecundario='Agora não'
         visible={modalVisible} 
+        hiddenButtons
         onClose={() => setModalVisible(false)}
-        onBotaoPrincipal={() => {
-          setModalVisible(false)
-          navigation.push('Checkout')           
-        }}
       />
     </View>
   )
