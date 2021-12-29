@@ -3,8 +3,10 @@ import {
   blue, 
   fontFamilyBold, 
   fontFamilyExtraBold, 
+  fontFamilyRegular, 
   fontFamilySemiBold, 
   fontSizeLarge, 
+  fontSizeMedium, 
   fontSizeSmall, 
   fontSizeXXLarge 
 } from '../../styles/styles'
@@ -18,7 +20,11 @@ export default styles = StyleSheet.create({
     fontFamily: fontFamilyBold,
     fontSize: fontSizeXXLarge,
     color: '#000',
-    marginBottom: 10,
+  },
+  subtitulo: {
+    fontFamily: fontFamilyRegular,
+    fontSize: fontSizeMedium,
+    marginBottom: 8,
   },
   containerTotal: {
     flexDirection: 'row',

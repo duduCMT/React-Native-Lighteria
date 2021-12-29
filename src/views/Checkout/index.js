@@ -18,7 +18,8 @@ export default function Checkout() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.titulo}>Checkout</Text>
+      <Text style={styles.titulo}>Minha Sacola</Text>
+      <Text style={styles.subtitulo}>Checkout</Text>
       {itensCheckout.map((item) => (
         <CheckoutItem item={item} key={item.id} />
       ))}
