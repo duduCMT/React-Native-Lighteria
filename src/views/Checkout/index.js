@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 import Botao from '../../components/Botao'
 import styles from './styles'
@@ -8,6 +9,7 @@ import styles from './styles'
 import { DataContext } from '../../provider'
 import { toReal } from '../../utils/moeda'
 import { CheckoutItem } from './components/CheckoutItem'
+import { gray, lighterGray, red } from '../../styles/styles'
 
 export default function Checkout() {
   const navigation = useNavigation()
@@ -20,17 +22,30 @@ export default function Checkout() {
     <View style={styles.container}>
       <Text style={styles.titulo}>Minha Sacola</Text>
       <Text style={styles.subtitulo}>Checkout</Text>
-      {itensCheckout.map((item) => (
-        <CheckoutItem item={item} key={item.id} />
-      ))}
-      <View style={styles.containerTotal}>
-        <Text style={styles.total}>Total:</Text>
-        <Text style={styles.total}>{toReal(valorTotal)}</Text>
+
+      { itensCheckout.length !== 0 ? 
+      <View>
+        {itensCheckout.map((item) => (
+          <CheckoutItem item={item} key={item.id} />
+        ))}
+        <View style={styles.containerTotal}>
+          <Text style={styles.total}>Total:</Text>
+          <Text style={styles.total}>{toReal(valorTotal)}</Text>
+        </View>
+        <Botao titulo='Finalizar Compra' />
+        <TouchableOpacity onPress={() => navigation.push('ListaProdutos')}>
+          <Text style={styles.textoContinuar}>Continuar Comprando</Text>
+        </TouchableOpacity>
+      </View> 
+      : 
+      <View style={styles.containerSacolaVazia}>
+        <View style={styles.sacolaVaziaIconContainer}>
+          <Icon name="shopping-outline" size={96} color={gray}/>
+          <Icon name="close-thick" size={48} color={red} style={styles.subiconSacolaVazia}/>
+        </View>
+        <Text style={styles.textoSacolaVazia}>Você não comprou nada ainda :(</Text>
       </View>
-      <Botao titulo='Finalizar Compra' />
-      <TouchableOpacity onPress={() => navigation.push('ListaProdutos')}>
-        <Text style={styles.textoContinuar}>Continuar Comprando</Text>
-      </TouchableOpacity>
+      }
     </View>
   )
 }

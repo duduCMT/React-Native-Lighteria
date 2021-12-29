@@ -8,7 +8,8 @@ import {
   fontSizeLarge, 
   fontSizeMedium, 
   fontSizeSmall, 
-  fontSizeXXLarge 
+  fontSizeXXLarge, 
+  gray
 } from '../../styles/styles'
 
 export default styles = StyleSheet.create({
@@ -42,5 +43,23 @@ export default styles = StyleSheet.create({
     color: blue,
     padding: 20,
     textAlign: 'center',
+  },
+  containerSacolaVazia: {
+    flex: 0.9,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  subiconSacolaVazia: {
+    position: 'absolute',
+    right: 0,
+    bottom: 0,
+  },
+  sacolaVaziaIconContainer: {
+    padding: 8,
+  },
+  textoSacolaVazia: {
+    color: gray,
+    fontFamily: fontFamilyRegular,
+    fontSize: fontSizeMedium
   }
 })
