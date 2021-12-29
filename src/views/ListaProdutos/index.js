@@ -13,6 +13,7 @@ export default function ListaProdutos(){
         renderItem={({item}) => <Produto produto={item} />}
         numColumns={2}
         data={data}
+        showsVerticalScrollIndicator={false}
         keyExtractor={item => item.id}
       />
     </View>

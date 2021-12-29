@@ -13,6 +13,7 @@ export default styles = StyleSheet.create({
   },
   imagem: {
     height: 80,
+    width: 80,
   },
   texto: {
     marginTop: 8,
