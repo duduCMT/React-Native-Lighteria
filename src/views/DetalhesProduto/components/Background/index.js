@@ -1,20 +1,20 @@
 import React from 'react'
-import { View, StyleSheet, ImageBackground, Dimensions, Image, TouchableOpacity } from 'react-native'
+import { View, ImageBackground, Image, TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import Sacola from '../../../../components/Sacola'
+import styles from './styles'
 
 export default function Background(){
-  const imgSrc = require('../../../../assets/images/bgimg.jpg')
   const navigation = useNavigation()
 
   return (
-    <View style={styles.bgContainer} >
+    <View style={styles.container} >
       <ImageBackground 
         resizeMode='cover'
-        source={imgSrc}
-        style={styles.imagemFundo}
+        source={require('../../../../assets/images/bgimg.jpg')}
+        style={styles.background}
       >
-        <View style={styles.headerContainer}>
+        <View style={styles.toolbar}>
           <TouchableOpacity onPress={() => navigation.goBack()}>
             <Image 
               source={require('../../../../assets/images/flecha-esquerda.png')}
@@ -28,23 +28,3 @@ export default function Background(){
   )
 }
 
-const styles = StyleSheet.create({
-  bgContainer: {
-    flex: 6
-  },
-  imagemFundo: {
-    width: Dimensions.get('window').width,
-    height: '100%',
-  },
-  headerContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingHorizontal: 24,
-    paddingTop: 16,
-  },
-  imagemSeta: {
-    width: 24,
-    height: 24,
-  }
-})

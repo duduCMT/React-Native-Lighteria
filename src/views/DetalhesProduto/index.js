@@ -1,20 +1,17 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View } from 'react-native'
 import Background from './components/Background'
+import styles from './styles'
 import DescricaoItem from './components/DescricaoItem'
 
 export default function DetalhesProduto({route}){
   const produto = route.params.produto
   return(
-    <View style={styles.container}>
+    <View style={{flex: 1}}>
       <Background />
-      <DescricaoItem produto={produto} />
+      <View style={styles.descricaoArea}>
+        <DescricaoItem produto={produto} style={styles.descricaoItem} />
+      </View>
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  }
-})

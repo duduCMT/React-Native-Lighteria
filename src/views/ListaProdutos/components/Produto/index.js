@@ -1,7 +1,7 @@
 import React from 'react'
-import { View, StyleSheet, Text, Image, TouchableOpacity } from 'react-native'
+import { Text, Image, TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import { gray, fontSizeSmall } from '../../../../styles/styles'
+import styles from './styles'
 
 export default function Produto({produto}){
   const navigation = useNavigation()
@@ -17,23 +17,3 @@ export default function Produto({produto}){
   )
 }
 
-const styles = StyleSheet.create({
-  containerItem: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    margin: 8,
-    height: 168,
-    backgroundColor: '#fff',
-    borderRadius: 8,
-  },
-  imagem: {
-    height: 80,
-  },
-  texto: {
-    marginTop: 8,
-    fontFamily: 'OpenSans-SemiBold',
-    fontSize: fontSizeSmall,
-    color: gray,
-  }
-})
