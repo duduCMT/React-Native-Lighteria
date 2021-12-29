@@ -24,7 +24,7 @@ export default styles = StyleSheet.create({
     marginBottom: 16,
   },
   imagem: {
-    width: 30, height: 72,
+    width: 60, height: 72,
   },
   textoEstudio: {
     fontFamily: fontFamilyBold,
