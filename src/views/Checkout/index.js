@@ -1,8 +1,9 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { View, Text, TouchableOpacity, FlatList } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
 import Botao from '../../components/Botao'
+import ModalSucesso from '../../components/ModalSucesso'
 import SacolaVazia from './components/SacolaVazia'
 import styles from './styles'
 
@@ -12,10 +13,18 @@ import { CheckoutItem } from './components/CheckoutItem'
 
 export default function Checkout() {
   const navigation = useNavigation()
-  const { itensCheckout } = useContext(DataContext)
+  const [abrirModal, setAbrirModal] = useState(false)
+  const { itensCheckout, limparItens } = useContext(DataContext)
+
   const valorTotal = itensCheckout.reduce(
     (acum, atual) => acum + (atual.preco * atual.quantidade), 0
   ).toFixed(2)
+
+  function onCloseModal(){
+    setAbrirModal(false)
+    navigation.popToTop()
+    limparItens()
+  }
 
   return (
     <View style={styles.container}>
@@ -40,13 +49,23 @@ export default function Checkout() {
             <Text style={styles.valorTotal}>{toReal(valorTotal)}</Text>
           </View>
 
-          <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around'}}>
+          <View style={styles.containerButtons}>
             <TouchableOpacity onPress={() => navigation.goBack()}>
               <Text style={styles.textoContinuar}>Voltar</Text>
             </TouchableOpacity>
-            <Botao titulo='Finalizar Compra' />
+            <Botao 
+              titulo='Finalizar Compra' 
+              onPress={() => setAbrirModal(true)} 
+            />
           </View>
         </View> 
+        <ModalSucesso 
+          titulo='Compra Finalizada!' 
+          mensagem='Obrigado por comprar na Lighteria!'
+          hiddenButtons 
+          visible={abrirModal}
+          onClose={onCloseModal}
+        />
       </>
       : 
         <SacolaVazia />

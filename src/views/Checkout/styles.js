@@ -1,13 +1,13 @@
 import { StyleSheet } from "react-native";
-import { 
-  blue, 
-  fontFamilyBold, 
-  fontFamilyRegular, 
-  fontFamilySemiBold, 
-  fontSizeLarge, 
-  fontSizeMedium, 
-  fontSizeSmall, 
-  fontSizeXXLarge, 
+import {
+  blue,
+  fontFamilyBold,
+  fontFamilyRegular,
+  fontFamilySemiBold,
+  fontSizeLarge,
+  fontSizeMedium,
+  fontSizeSmall,
+  fontSizeXXLarge,
   gray
 } from '../../styles/styles'
 
@@ -67,5 +67,9 @@ export default styles = StyleSheet.create({
     padding: 20,
     textAlign: 'center',
   },
-  
+  containerButtons: {
+    flexDirection: 'row', 
+    alignItems: 'center', 
+    justifyContent: 'space-around'
+  },
 })

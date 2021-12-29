@@ -20,7 +20,8 @@ export default function Provider({children}){
           copiaItensCheckout = [...copiaItensCheckout, novoItem]
         }
         setItensCheckout(copiaItensCheckout)
-      }
+      },
+      limparItens: () => setItensCheckout([])
     }}
     >
       {children}
