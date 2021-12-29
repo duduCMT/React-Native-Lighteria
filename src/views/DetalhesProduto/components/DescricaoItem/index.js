@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, TouchableOpacity } from 'react-native'
 
 import { DataContext } from '../../../../provider'
 import { toReal } from '../../../../utils/moeda'
@@ -7,17 +7,20 @@ import Botao from '../../../../components/Botao'
 import styles from './styles'
 import ModalSucesso from '../../../../components/ModalSucesso'
 import { useNavigation } from '@react-navigation/native'
+import ModalImagem from '../ModalImagem'
 
 
 export default function DescricaoItem({ produto, style }) {
-  const [modalVisible, setModalVisible] = useState(false)
-  const { adicionarItem } = useContext(DataContext)
   const navigation = useNavigation()
+  const [modalImagemVisible, setModalImagemVisible] = useState(false)
+  const [modalComprarVisible, setModalComprarVisible] = useState(false)
+
+  const { adicionarItem } = useContext(DataContext)
 
   const { estudio, itemName, titulo, imagem, itemDesc, preco } = { ...produto }
 
   function handleComprar(){
-    setModalVisible(true)
+    setModalComprarVisible(true)
     adicionarItem(produto)
   }
 
@@ -29,7 +32,9 @@ export default function DescricaoItem({ produto, style }) {
           <Text style={styles.textoItemName}>{itemName}</Text>
           <Text style={styles.textoTitulo}>{titulo}</Text>
         </View>
-        <Image source={imagem} style={styles.imagem} />
+        <TouchableOpacity onPress={() => setModalImagemVisible(true)}>
+          <Image source={imagem} style={styles.imagem} />
+        </TouchableOpacity>
       </View>
       <Text style={styles.textoDescricao}>{itemDesc}</Text>
       <View style={styles.footer}>
@@ -38,9 +43,16 @@ export default function DescricaoItem({ produto, style }) {
       </View>
       <ModalSucesso 
         titulo='Produto na Sacola'
-        visible={modalVisible} 
+        visible={modalComprarVisible} 
         hiddenButtons
-        onClose={() => setModalVisible(false)}
+        onClose={() => setModalComprarVisible(false)}
+      />
+      <ModalImagem 
+        imagem={imagem}
+        titulo={titulo}
+        itemName={itemName}
+        visible={modalImagemVisible}
+        onClose={() => setModalImagemVisible(false)}
       />
     </View>
   )
