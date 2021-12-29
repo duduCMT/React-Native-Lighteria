@@ -1,8 +1,9 @@
 import React, { useContext } from 'react'
-import { View, Image, StyleSheet, TouchableOpacity, Text } from 'react-native'
+import { View, StyleSheet, TouchableOpacity, Text } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { fontFamilySemiBold, fontSizeXSmall, red } from '../../styles/styles'
 import { DataContext } from '../../provider'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 export default function Sacola() {
   const navigation = useNavigation()
@@ -13,9 +14,10 @@ export default function Sacola() {
       style={styles.containerSacola}
       onPress={() => navigation.push('Checkout')}
     >
-      <Image
-        source={require('../../assets/images/icone-sacola.png')}
-        style={styles.image}
+      <Icon
+        name='shopping-outline'
+        size={24}
+        color="#000"
       />
       { itensCheckout.length > 0 ? 
         <View style={styles.containerQuantidade}>
