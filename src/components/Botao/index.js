@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { blue, fontFamilyRegular, fontFamilySemiBold, fontSizeMedium } from '../../styles/styles';
 
-export default function Botao({ titulo, onPress, style }) {
+export default function Botao({ titulo, onPress, style, type }) {
   return (
     <TouchableOpacity style={[styles.container, style]} onPress={onPress}>
       <Text style={styles.texto}>{titulo}</Text>
@@ -24,4 +24,10 @@ const styles = StyleSheet.create({
     color: '#FFF',
     textTransform: 'uppercase',
   },
+  secondaryContainer: {
+    backgroundColor: 'none'
+  },
+  secondaryText: {
+    color: blue
+  }
 });

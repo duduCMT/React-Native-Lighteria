@@ -1,15 +1,25 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { View, Text, Image } from 'react-native'
 
 import { DataContext } from '../../../../provider'
 import { toReal } from '../../../../utils/moeda'
 import Botao from '../../../../components/Botao'
 import styles from './styles'
+import ModalSucesso from '../../../../components/ModalSucesso'
+import { useNavigation } from '@react-navigation/native'
 
 
 export default function DescricaoItem({ produto, style }) {
-  const { estudio, itemName, titulo, imagem, itemDesc, preco } = { ...produto }
+  const [modalVisible, setModalVisible] = useState(false)
   const { adicionarItem } = useContext(DataContext)
+  const navigation = useNavigation()
+
+  const { estudio, itemName, titulo, imagem, itemDesc, preco } = { ...produto }
+
+  function handleComprar(){
+    setModalVisible(true)
+    adicionarItem(produto)
+  }
 
   return (
     <View style={[styles.card, style]}>
@@ -24,8 +34,20 @@ export default function DescricaoItem({ produto, style }) {
       <Text style={styles.textoDescricao}>{itemDesc}</Text>
       <View style={styles.footer}>
         <Text style={styles.preco}>{toReal(preco)}</Text>
-        <Botao titulo='Comprar' onPress={() => adicionarItem(produto)} />
+        <Botao titulo='Comprar' onPress={handleComprar} />
       </View>
+      <ModalSucesso 
+        titulo='Produto na Sacola'
+        mensagem='Seu produto foi adicionado na sacola. Deseja ver todos os itens?'
+        botaoPrincipal='Ver sacola'
+        botaoSecundario='Agora não'
+        visible={modalVisible} 
+        onClose={() => setModalVisible(false)}
+        onBotaoPrincipal={() => {
+          setModalVisible(false)
+          navigation.push('Checkout')           
+        }}
+      />
     </View>
   )
 }

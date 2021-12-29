@@ -1,4 +1,5 @@
 // CORES
+export const green = '#43a047'
 export const red = '#d32f2f'
 export const blue = '#1976d2'
 export const gray = '#848486'
