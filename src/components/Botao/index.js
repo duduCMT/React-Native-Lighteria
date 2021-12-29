@@ -1,13 +1,11 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { blue, fontFamilySemiBold, fontSizeMedium } from '../../styles/styles';
+import { blue, fontFamilyRegular, fontFamilySemiBold, fontSizeMedium } from '../../styles/styles';
 
-export default function Botao({ titulo, onPress }) {
+export default function Botao({ titulo, onPress, style }) {
   return (
-    <TouchableOpacity onPress={onPress}>
-      <View style={styles.container}>
-        <Text style={styles.texto}>{titulo}</Text>
-      </View>
+    <TouchableOpacity style={[styles.container, style]} onPress={onPress}>
+      <Text style={styles.texto}>{titulo}</Text>
     </TouchableOpacity>
   );
 };
@@ -18,10 +16,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 16,
     borderRadius: 6,
+    alignItems: 'center',
   },
   texto: {
-    fontFamily: fontFamilySemiBold,
+    fontFamily: fontFamilyRegular,
     fontSize: fontSizeMedium,
     color: '#FFF',
+    textTransform: 'uppercase',
   },
 });

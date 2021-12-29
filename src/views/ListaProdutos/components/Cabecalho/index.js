@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   textoDescricao: {
     position: 'absolute',
     backgroundColor: backgroundColor,
-    paddingHorizontal: 32,
+    paddingHorizontal: 12,
     fontSize: fontSizeMedium,
     color: lighterGray,
     fontFamily: fontFamilyRegular,
