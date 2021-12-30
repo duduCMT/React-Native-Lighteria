@@ -9,7 +9,7 @@
 
 ## 📝 **Descrição**
 
-A Lighteria é uma loja de Lâmpadas, Luzes e Luminárias decorativas para o seu ambiente. Com base nessa ideia, foi criado um aplicativo usando React Native para inicial o seu e-commerce. 
+A Lighteria é uma loja de Lâmpadas, Luzes e Luminárias decorativas para o seu ambiente. Com base nessa ideia, foi criado um aplicativo usando React Native para iniciar o seu e-commerce. 
 
 ## 🚀 **Objetivo**
 
@@ -47,7 +47,7 @@ As imagens utilizadas no projeto foram disponibilizados gratuitamente pelo site 
 ## 🔎 Teste Você Mesmo
 📌 **Pré requisitos:**
 1. Tenha o repositório baixado em sua máquina.
-2. Tenha o [NodeJS](https://nodejs.org/) instalado em sua máquina
+2. Tenha o [NodeJS](https://nodejs.org/) instalado em sua máquina.
 3. Tenha o [React Native CLI](https://reactnative.dev/docs/environment-setup) instalado em sua máquina junto a um virtual device Android ou iOS.
 
 🚩 **Como Executar:**
